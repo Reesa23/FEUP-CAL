@@ -7,12 +7,41 @@
 
 void exercicio3()
 {
-    ifstream nodes("../resources/mapa1/nos.txt");
-    ifstream edges("../resources/mapa1/arestas.txt");
+
+    ifstream nodes("../resources/GridGraphs/4x4/nodes.txt");
+    ifstream edges("../resources/GridGraphs/4x4/edges.txt");
 
     GraphViewer * gv = new GraphViewer(600, 600, false);
     gv->createWindow(600,600);
 
+    string line;
+    while(getline(nodes, line)) {
+        int idn, x, y;
+        char parenthesis, comma;
+
+        stringstream ss(line);
+
+        ss >> parenthesis >> idn >> comma >> x >> comma >> y;
+
+        gv->addNode(idn, x, y);
+    }
+
+    int ide=0;
+
+    while(getline(edges, line)) {
+        int idn1, idn2;
+        char parenthesis, comma;
+
+        stringstream ss(line);
+
+        ss >> parenthesis >> idn1 >> comma >> idn2;
+
+
+        gv->addEdge(ide, idn1, idn2, EdgeType::UNDIRECTED);
+        ide++;
+    }
+
+/*
     string line;
     while(getline(nodes, line)) {
         int idn, x, y;
@@ -35,7 +64,7 @@ void exercicio3()
 
         gv->addEdge(ide, idn1, idn2, EdgeType::UNDIRECTED);
     }
-
+*/
 
     gv->rearrange();
 
