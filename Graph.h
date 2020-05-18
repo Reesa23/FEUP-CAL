@@ -11,6 +11,7 @@
 #include <list>
 #include <limits>
 #include <cmath>
+#include <iostream>
 
 using namespace std;
 
@@ -38,7 +39,7 @@ class Vertex {
     //void addEdge(Vertex<T> *dest, double w);
 
 public:
-    // Vertex(T in);
+    Vertex(int newId, double newX, double newY);
     int getId() const;
     double getDist() const;
     Vertex *getPath() const;
@@ -80,11 +81,12 @@ Vertex *Vertex::getPath() const {
 /********************** Edge  ****************************/
 
 class Edge {
+    int id;
     Vertex* dest;      // destination vertex
     double weight;     // edge weight
 
 public:
-    Edge(Vertex* d, double w);
+    Edge(int newId, Vertex* d, double w);
     Vertex* getDest();
     double getWeight();
     void updateWeight(double newWeight);
@@ -99,14 +101,19 @@ public:
 
 class Graph {
     vector<Vertex *> vertexSet;    // vertex set
+    vector<Edge*> edgeSet;         // edge set
 
 public:
-    //Vertex *findVertex(const T &in) const;
+    Vertex *findVertex(const int id) const;
     //bool addVertex(const T &in);
     //bool addEdge(const T &sourc, const T &dest, double w);
 
+    Graph();
     int getNumVertex() const;
     vector<Vertex *> getVertexSet() const;
+    vector<Edge *> getEdgeSet() const;
+    void addVertex(Vertex* newV);
+    void addEdge(Edge* newE);
 
 };
 
