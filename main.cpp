@@ -35,14 +35,10 @@ void createGraph()
 
         gv->addNode(idn, x, y);
 
-        Vertex tempV = Vertex(idn, x, y);
-        graph.addVertex(&tempV);            // adds the vertices to the graph
+        Vertex* tempV = new Vertex(idn, x, y);
+        graph.addVertex(tempV);            // adds the vertices to the graph
 
-        cout<<"\nnew";
-        for(int i=0;i<graph.getVertexSet().size();i++)
-        {
-            cout<<"\n graph id: "<<graph.getVertexSet()[i]->getId();
-        }
+        //delete tempV;
 
     }
 

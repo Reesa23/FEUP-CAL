@@ -40,6 +40,8 @@ class Vertex {
 
 public:
     Vertex(int newId, double newX, double newY);
+    ~Vertex();
+
     int getId() const;
     double getDist() const;
     Vertex *getPath() const;

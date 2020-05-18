@@ -9,6 +9,8 @@ using namespace std;
 
 Vertex::Vertex(int newId, double newX, double newY): id(newId), x(newX), y(newY) {}     // constructor
 
+Vertex::~Vertex() {cout<<"destructor called";}  // FAZER DESTRUCTOR
+
 int Vertex::getId() const { return id;}
 double Vertex::getDist() const { return dist;}
 Vertex* Vertex::getPath() const { return path;}
@@ -36,12 +38,10 @@ void Graph::addEdge(Edge *newE) {edgeSet.push_back(newE);}
 
 Vertex* Graph::findVertex(const int id) const {  // CHANGEEEE
 
-    cout<<"id wanted: "<<id;
 
     for(int i=0;i<vertexSet.size();i++)
     {
 
-        cout<<"\ni: "<<i<<" current id: "<<vertexSet[i]->getId();
         if(vertexSet[i]->getId()==id)
             return vertexSet[i];
     }
