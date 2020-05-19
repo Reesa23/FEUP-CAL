@@ -1,20 +1,17 @@
-//
-// Created by tisco on 18/05/2020.
-//
-
 #include <cstdio>
 #include "graphviewer.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 
 #include "Graph.h"
+#include "algorithms.h"
 
 Graph graph = Graph();
 
 void createGraph()
 {
-
 
     ifstream nodes("../resources/GridGraphs/4x4/nodes.txt");
     ifstream edges("../resources/GridGraphs/4x4/edges.txt");

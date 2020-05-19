@@ -1,8 +1,5 @@
-//
-// Created by tisco on 17/05/2020.
-//
-
 #include "Graph.h"
+
 using namespace std;
 
 // VERTEX

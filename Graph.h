@@ -1,7 +1,3 @@
-//
-// Created by tisco on 17/05/2020.
-//
-
 #ifndef FICHAJUNG_GRAPH_H
 #define FICHAJUNG_GRAPH_H
 
