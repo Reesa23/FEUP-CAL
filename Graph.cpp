@@ -22,6 +22,7 @@ Edge::Edge(int newId, Vertex* d, double w): id(newId), dest(d), weight(w) {}    
 double Edge::getWeight() {return weight;}
 Vertex* Edge::getDest() {return dest;}
 void Edge::updateWeight(double newWeight) {weight=newWeight;}
+int Edge::getId() {return id;}
 
 // GRAPH
 

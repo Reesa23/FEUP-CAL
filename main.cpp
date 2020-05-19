@@ -10,10 +10,11 @@
 
 #include "Graph.h"
 
+Graph graph = Graph();
+
 void createGraph()
 {
 
-    Graph graph = Graph();
 
     ifstream nodes("../resources/GridGraphs/4x4/nodes.txt");
     ifstream edges("../resources/GridGraphs/4x4/edges.txt");
@@ -48,17 +49,17 @@ void createGraph()
 
     while(getline(edges, line)) {
         int idn1, idn2;
-        char parenthesis, comma;
+        char parenthesis, comma, weight;
 
         stringstream ss(line);
 
-        ss >> parenthesis >> idn1 >> comma >> idn2;
+        ss >> parenthesis >> idn1 >> comma >> idn2 >> comma >> weight;
 
 
-        gv->addEdge(ide, idn1, idn2, EdgeType::UNDIRECTED);
+        gv->addEdge(ide, idn1, idn2, EdgeType::DIRECTED);
 
-        Edge tempE = Edge(ide, graph.findVertex(idn2),1.0);
-        graph.addEdge(&tempE);
+        Edge *tempE = new Edge(ide, graph.findVertex(idn2),weight);
+        graph.addEdge(tempE);
 
         ide++;
     }
@@ -73,6 +74,19 @@ void createGraph()
 int main() {
 
     createGraph();
+
+    //debug
+
+    /*
+    for(int i=0; i<graph.getVertexSet().size();i++)
+    {
+        cout<<"\n vertex "<<i<<": "<<graph.getVertexSet()[i]->getId();
+    }
+
+    for(int i=0; i<graph.getEdgeSet().size();i++)
+    {
+        cout<<"\n edge "<<i<<": "<<graph.getEdgeSet()[i]->getId();
+    }*/
 
     getchar();
     return 0;

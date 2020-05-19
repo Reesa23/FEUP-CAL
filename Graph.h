@@ -89,6 +89,7 @@ class Edge {
 
 public:
     Edge(int newId, Vertex* d, double w);
+    int getId();
     Vertex* getDest();
     double getWeight();
     void updateWeight(double newWeight);
