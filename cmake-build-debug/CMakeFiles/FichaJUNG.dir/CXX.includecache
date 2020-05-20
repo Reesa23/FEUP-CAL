@@ -1,0 +1,162 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../lib/connection.h
+cstdio
+-
+cstdlib
+-
+cstring
+-
+arpa/inet.h
+-
+sys/socket.h
+-
+sys/types.h
+-
+netdb.h
+-
+winsock2.h
+-
+string
+-
+iostream
+-
+
+../lib/edgetype.h
+
+../lib/graphviewer.h
+unistd.h
+-
+winsock2.h
+-
+Windows.h
+-
+stdlib.h
+-
+signal.h
+-
+string
+-
+edgetype.h
+../lib/edgetype.h
+connection.h
+../lib/connection.h
+
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/Algorithms.cpp
+Algorithms.h
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/Algorithms.h
+
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/Algorithms.h
+vector
+-
+queue
+-
+list
+-
+limits
+-
+cmath
+-
+iostream
+-
+algorithm
+-
+Graph.h
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/Graph.h
+
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/Graph.cpp
+Graph.h
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/Graph.h
+
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/Graph.h
+vector
+-
+queue
+-
+list
+-
+limits
+-
+cmath
+-
+iostream
+-
+
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/lib/connection.cpp
+connection.h
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/lib/connection.h
+
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/lib/connection.h
+cstdio
+-
+cstdlib
+-
+cstring
+-
+arpa/inet.h
+-
+sys/socket.h
+-
+sys/types.h
+-
+netdb.h
+-
+winsock2.h
+-
+string
+-
+iostream
+-
+
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/lib/edgetype.h
+
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/lib/graphviewer.cpp
+graphviewer.h
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/lib/graphviewer.h
+string
+-
+sstream
+-
+
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/lib/graphviewer.h
+unistd.h
+-
+winsock2.h
+-
+Windows.h
+-
+stdlib.h
+-
+signal.h
+-
+string
+-
+edgetype.h
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/lib/edgetype.h
+connection.h
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/lib/connection.h
+
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/main.cpp
+cstdio
+-
+graphviewer.h
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/graphviewer.h
+fstream
+-
+iostream
+-
+sstream
+-
+algorithm
+-
+Graph.h
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/Graph.h
+algorithms.h
+C:/Users/raque/OneDrive/Ambiente de Trabalho/ano 2 semestre 2/cal/FEUP-CAL/Algorithms.h
+

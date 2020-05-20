@@ -116,6 +116,17 @@ public:
 
 };
 
+/*************************** Graph  **************************/
+class NonExitentVertex{
+public:
+
+    NonExitentVertex(){ }
+    ///\brief Operador << para mensagem de erro que apanha o objeto lançado pela exceção.
+    friend ostream & operator<<(ostream &out, const NonExitentVertex &nonExitentVertex){
+        out << "Vertex non existent!"<<endl;
+        return out;
+    }
+};
 
 /* CLASS STUFF, MIGHT BE USEFUL LATER
  *

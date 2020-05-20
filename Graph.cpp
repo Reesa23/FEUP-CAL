@@ -34,7 +34,7 @@ void Graph::addVertex(Vertex * newV) {vertexSet.push_back(newV);}
 void Graph::addEdge(Edge *newE) {edgeSet.push_back(newE);}
 
 
-Vertex* Graph::findVertex(const int id) const {  // CHANGEEEE
+Vertex* Graph::findVertex(const int id) const {
 
 
     for(int i=0;i<vertexSet.size();i++)
@@ -43,7 +43,5 @@ Vertex* Graph::findVertex(const int id) const {  // CHANGEEEE
         if(vertexSet[i]->getId()==id)
             return vertexSet[i];
     }
-
-    cout << "Vertex non existent";
-    return 0x0;                               // CHANGE!!!!! THROW EXCEPTION
+    throw NonExitentVertex();
 }
