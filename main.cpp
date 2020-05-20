@@ -52,13 +52,23 @@ void createGraph()
 
         ss >> parenthesis >> idn1 >> comma >> idn2 >> comma >> weight;
 
+        try
+        {
+            Edge *tempE;
 
-        gv->addEdge(ide, idn1, idn2, EdgeType::DIRECTED);
+            tempE = new Edge(ide, graph.findVertex(idn2),weight);
+            graph.addEdge(tempE);
 
-        Edge *tempE = new Edge(ide, graph.findVertex(idn2),weight);
-        graph.addEdge(tempE);
+            gv->addEdge(ide, idn1, idn2, EdgeType::DIRECTED);
 
-        ide++;
+            ide++;
+        }
+
+        catch (NonExistentVertex &n)
+        {
+            cout<<n;
+        }
+
     }
 
     gv->rearrange();
@@ -71,6 +81,7 @@ void createGraph()
 int main() {
 
     createGraph();
+
 
     //debug
 
