@@ -45,8 +45,9 @@ void createGraph()
     int ide=0;
 
     while(getline(edges, line)) {
-        int idn1, idn2;
-        char parenthesis, comma, weight;
+        int idn1, idn2, weight;
+        char parenthesis, comma;
+
 
         stringstream ss(line);
 
@@ -60,6 +61,8 @@ void createGraph()
             graph.addEdge(tempE);
 
             gv->addEdge(ide, idn1, idn2, EdgeType::DIRECTED);
+
+            graph.getVertexSet()[idn1]->addAdj(tempE);
 
             ide++;
         }
@@ -82,19 +85,10 @@ int main() {
 
     createGraph();
 
+    //vector<vector<double> > t(graph.getVertexSet().size());
+    //createWeightMatrix(graph, t);
 
-    //debug
 
-    /*
-    for(int i=0; i<graph.getVertexSet().size();i++)
-    {
-        cout<<"\n vertex "<<i<<": "<<graph.getVertexSet()[i]->getId();
-    }
-
-    for(int i=0; i<graph.getEdgeSet().size();i++)
-    {
-        cout<<"\n edge "<<i<<": "<<graph.getEdgeSet()[i]->getId();
-    }*/
 
     getchar();
     return 0;

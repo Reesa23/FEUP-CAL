@@ -11,6 +11,26 @@ Vertex::~Vertex() {cout<<"destructor called";}  // FAZER DESTRUCTOR
 int Vertex::getId() const { return id;}
 double Vertex::getDist() const { return dist;}
 Vertex* Vertex::getPath() const { return path;}
+vector<Edge*> Vertex::getAdj() const {return adj;}
+
+bool Vertex::getVisited() const {return visited;}
+void Vertex::setVisited(bool v) {visited=v;}
+
+
+bool Vertex::operator< (Vertex& a) const{
+    if(getDist()<a.getDist())
+        return true;
+    return false;
+}
+
+void Vertex::setDist(double distance) {dist=distance;}
+void Vertex::setPath(Vertex *newPath) {path=newPath;}
+
+void Vertex::addAdj(Edge *edge) {
+    adj.push_back(edge);
+}
+
+
 
 // EDGE
 
@@ -20,6 +40,9 @@ double Edge::getWeight() {return weight;}
 Vertex* Edge::getDest() {return dest;}
 void Edge::updateWeight(double newWeight) {weight=newWeight;}
 int Edge::getId() {return id;}
+
+
+
 
 // GRAPH
 

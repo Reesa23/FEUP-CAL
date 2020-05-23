@@ -8,6 +8,7 @@
 #include <limits>
 #include <cmath>
 #include <iostream>
+#include "MutablePriorityQueue.h"
 
 using namespace std;
 
@@ -23,16 +24,17 @@ class Vertex {
     int id;						// vertex id
     double x;                   // x coordinate
     double y;                   // y coordinate
-    vector<Edge> adj;           // outgoing edges
+    vector<Edge*> adj;           // outgoing edges
 
     double dist = 0;
     Vertex* path = NULL;
-    //int queueIndex = 0; 		// required by MutablePriorityQueue
+    int queueIndex = 0; 		// required by MutablePriorityQueue
 
-    //bool visited = false;		// auxiliary field
+    bool visited = false;		// auxiliary field
     //bool processing = false;	// auxiliary field
 
-    //void addEdge(Vertex<T> *dest, double w);
+    //void addEdge(Vertex *dest, double w);
+
 
 public:
     Vertex(int newId, double newX, double newY);
@@ -41,10 +43,19 @@ public:
     int getId() const;
     double getDist() const;
     Vertex *getPath() const;
+    vector<Edge*> getAdj() const;
+    bool getVisited() const;
 
-    //bool operator<(Vertex<T> & vertex) const; // // required by MutablePriorityQueue
+
+    void setDist(double distance);
+    void setPath(Vertex *newPath);
+    void addAdj(Edge *edge);
+    void setVisited(bool v);
+
+    bool operator<(Vertex & vertex) const; // // required by MutablePriorityQueue
     //friend class Graph;
-    //friend class MutablePriorityQueue<Vertex<T>>;
+    friend class MutablePriorityQueue<Vertex>;
+
 };
 
 

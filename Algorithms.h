@@ -10,11 +10,15 @@
 #include <iostream>
 #include <algorithm>
 #include "Graph.h"
+#include "MutablePriorityQueue.h"
 
 using namespace std;
 
-// dijkstra
-vector<int> bruteForce(Graph mainGraph, int startId);
+
+void dijkstra(Graph &mainGraph, int initial_id);
+
+void createWeightMatrix(Graph g, vector<vector<double>> &matrix);
+void bruteForce(Graph mainGraph, int startId, vector<vector<double>> &weightsMatrix, vector<int> &bestPathNodes);
 
 
 
