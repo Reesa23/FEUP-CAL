@@ -27,7 +27,8 @@ class Vertex {
     vector<Edge*> adj;           // outgoing edges
 
     double dist = 0;
-    Vertex* path = NULL;
+    Vertex* path = nullptr;
+    int prevPlace = -1;
     int queueIndex = 0; 		// required by MutablePriorityQueue
 
     bool visited = false;		// auxiliary field
@@ -45,16 +46,18 @@ public:
     Vertex *getPath() const;
     vector<Edge*> getAdj() const;
     bool getVisited() const;
-
+    int getPrevPlace() const;
 
     void setDist(double distance);
     void setPath(Vertex *newPath);
     void addAdj(Edge *edge);
     void setVisited(bool v);
+    void setPrevPlace(int placeId);
 
     bool operator<(Vertex & vertex) const; // // required by MutablePriorityQueue
     //friend class Graph;
     friend class MutablePriorityQueue<Vertex>;
+
 
 };
 
@@ -125,7 +128,12 @@ public:
     void addVertex(Vertex* newV);
     void addEdge(Edge* newE);
 
+    void bestCircuit(int startVertexId, int endVertexId, vector<int> interestIds);
+    double g(Vertex &start, Vertex &end, vector<Vertex*> &path);
+
+    void dijkstra(int initial_id);
 };
+
 
 class NonExistentVertex{
 

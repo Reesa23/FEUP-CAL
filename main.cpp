@@ -6,9 +6,12 @@
 #include <algorithm>
 
 #include "Graph.h"
-#include "algorithms.h"
+#include "Cabaz.h"  // might not be needed here
+#include "Camiao.h"  // might be needed here
 
 Graph graph = Graph();
+
+GraphViewer * gv = new GraphViewer(600, 600, false); // new
 
 void createGraph()
 {
@@ -84,6 +87,19 @@ void createGraph()
 int main() {
 
     createGraph();
+
+    vector<int> testing;
+
+    testing.push_back(1);
+    testing.push_back(5);
+
+    graph.bestCircuit(0,0,testing);
+
+
+
+
+
+// double g(Graph &myGraph, Vertex &start, Vertex &end, vector<Vertex> &path);
 
     //vector<vector<double> > t(graph.getVertexSet().size());
     //createWeightMatrix(graph, t);

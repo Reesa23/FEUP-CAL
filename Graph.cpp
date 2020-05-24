@@ -6,16 +6,16 @@ using namespace std;
 
 Vertex::Vertex(int newId, double newX, double newY): id(newId), x(newX), y(newY) {}     // constructor
 
-Vertex::~Vertex() {cout<<"destructor called";}  // FAZER DESTRUCTOR
+Vertex::~Vertex() {}
 
 int Vertex::getId() const { return id;}
 double Vertex::getDist() const { return dist;}
 Vertex* Vertex::getPath() const { return path;}
 vector<Edge*> Vertex::getAdj() const {return adj;}
-
 bool Vertex::getVisited() const {return visited;}
+int Vertex::getPrevPlace() const {return prevPlace;}
 void Vertex::setVisited(bool v) {visited=v;}
-
+void Vertex::setPrevPlace(int place) {prevPlace=place;}
 
 bool Vertex::operator< (Vertex& a) const{
     if(getDist()<a.getDist())
@@ -57,7 +57,7 @@ void Graph::addVertex(Vertex * newV) {vertexSet.push_back(newV);}
 void Graph::addEdge(Edge *newE) {edgeSet.push_back(newE);}
 
 
-Vertex* Graph::findVertex(const int id) const {  // CHANGEEEE
+Vertex* Graph::findVertex(const int id) const {
 
 
     for(int i=0;i<vertexSet.size();i++)
@@ -67,7 +67,145 @@ Vertex* Graph::findVertex(const int id) const {  // CHANGEEEE
             return vertexSet[i];
     }
 
-    //cout << "Vertex non existent";
     throw NonExistentVertex(id);
-    //return 0x0;                               // CHANGE!!!!! THROW EXCEPTION
+}
+
+
+
+void Graph::dijkstra(int initial_id) {
+
+
+    MutablePriorityQueue<Vertex> pq;
+
+    for (auto vertex : vertexSet) {
+        vertex->setDist(999999);
+        vertex->setPath(nullptr);
+        vertex->setVisited(false);
+        if (vertex->getId()==initial_id)
+        {
+            vertex->setDist(0);
+            pq.insert(vertex);
+            vertex->setVisited(true);
+        }
+    }
+
+
+    while (!pq.empty()) {
+        Vertex* v = pq.extractMin();
+
+        for (Edge *e: v->getAdj()) {
+
+            Vertex *a = e->getDest();
+
+            if (a->getDist() > v->getDist() + e->getWeight() || !a->getVisited()) {
+
+                a->setDist(v->getDist() + e->getWeight());
+                a->setPath(v);
+                a->setVisited(true);
+
+                pq.insert(a);
+            }
+        }
+    }
+}
+
+
+
+double Graph::g(Vertex &start, Vertex &end, vector<Vertex*> &path)
+{
+    double dist;
+    if(path.empty())
+    {
+        end.setPrevPlace(start.getId());
+        dijkstra(start.getId());
+        dist=end.getDist();
+    }
+    else if(path.size()==1)
+    {
+        path[0]->setPrevPlace(start.getId());
+        dijkstra(start.getId());
+        dist = path[0]->getDist();
+        end.setPrevPlace(path[0]->getId());
+        dijkstra(path[0]->getId());
+        dist += end.getDist();
+    }
+    else
+    {
+        vector<double> distanceVec;
+        for (int i = 0; i < path.size(); i++)
+        {
+            vector<Vertex*> subset;
+            for (int j = 0; j < path.size(); j++)
+            {
+                if (i != j)
+                {
+                    subset.push_back(path[j]);
+                }
+            }
+            dist = g(start,*path[i],subset);
+            dijkstra(path[i]->getId());
+            dist += end.getDist();
+            distanceVec.push_back(dist);
+        }
+
+        vector<Vertex*> sub;
+
+        dist = distanceVec[0];
+        for(int i=0;i<distanceVec.size();i++)
+        {
+            if (distanceVec[i]<dist) dist=distanceVec[i];
+        }
+
+
+        for (int i = 0; i < distanceVec.size(); i++)
+        {
+            if (distanceVec[i] == dist)
+            {
+                for (int j = 0; j < path.size(); j++)
+                {
+                    if (i != j)
+                    {
+                        sub.push_back(path[j]);
+                    }
+                }
+                g(start,*path[i],sub);
+                end.setPrevPlace(path[i]->getId());
+                break;
+            }
+        }
+    }
+    return dist;
+}
+
+
+void Graph::bestCircuit(int startVertexId, int endVertexId, vector<int> interestIds) {
+
+    vector<Vertex*> interestVertices;
+
+    for(int i=0;i<interestIds.size();i++)
+    {
+        interestVertices.push_back(findVertex(interestIds[i]));
+    }
+
+    double totalDistance;
+
+    totalDistance = g(*findVertex(startVertexId),*findVertex(endVertexId),interestVertices);
+
+    cout<<"\nTotal distance: "<< totalDistance<<endl;// <<" size:"<<interestVertices.size();
+
+    vector<int> pathVertices;
+    Vertex v = *vertexSet[endVertexId];
+
+    while(v.getPath() != nullptr) {
+        pathVertices.push_back(v.getPath()->getId());
+        v = *v.getPath();
+    }
+
+    cout<<"Path: "<<startVertexId;
+    for (int i=pathVertices.size()-1;i>=0;i--)
+    {
+        cout<<" -> "<<pathVertices[i];
+    }
+    cout<<" -> "<<endVertexId;
+
 }
