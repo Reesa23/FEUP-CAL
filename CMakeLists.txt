@@ -8,4 +8,4 @@ link_libraries(ws2_32 wsock32)
 
 include_directories(lib)
 include_directories(resources)
-add_executable(FichaJUNG lib/connection.cpp lib/graphviewer.cpp main.cpp Graph.h Graph.cpp MutablePriorityQueue.h Camiao.h Camiao.cpp Cabaz.h Cabaz.cpp)
+add_executable(FichaJUNG lib/connection.cpp lib/graphviewer.cpp main.cpp Graph.h Graph.cpp MutablePriorityQueue.h Camiao.h Camiao.cpp Cabaz.h Cabaz.cpp Cliente.h Cliente.cpp FarmFresh2U.h FarmFresh2U.cpp Pessoa.h Encomenda.h Encomenda.cpp)

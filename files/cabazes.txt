@@ -1,0 +1,49 @@
+1
+6
+5
+2kg-batata, 3kg-cebola, 1kg-maca
+------
+2
+8
+9
+5kg-batata, 2kg-cebola, 1kg-maca
+------
+3
+8
+7
+1kg-batata, 4kg-cenoura, 3kg-laranja
+------
+4
+13
+8
+5kg-feijão, 1kg-pepino, 7kg-maca
+------
+5
+10
+7
+3kg-cenoura, 2kg-pepino, 2kg-laranja, 3kg-morango
+------
+6
+13
+14
+1kg-banana, 2kg-framboesa, 1kg-maca, 2kg-feijão, 4kg-cenoura, 3kg-batata
+------
+7
+3
+5
+1kg-cenoura, 1kg-batata, 1kg-abobora
+------
+8
+5
+4
+1kg-manga, 1kg-morango, 1kg-cereja, 2kg-maca
+------
+9
+6
+6
+1kg-framboesa, 1kg-feijão, 1kg-pepino, 1kg-batata, 2kg-agriao
+------
+10
+9
+8
+3kg-batata, 3kg-cenoura, 2kg-feijao, 1kg-cebola

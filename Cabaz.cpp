@@ -5,7 +5,7 @@ Cabaz::Cabaz(double peso, double volume,string nomeDest, string morada, int numF
     this->volume=volume;
     this->nomeDest=nomeDest;
     this->morada=morada;
-    this->num_fatura=numFatura;
+
 }
 
 double Cabaz::getPeso() {
@@ -40,18 +40,22 @@ void Cabaz::setMorada(string morada) {
     Cabaz::morada = morada;
 }
 
-int Cabaz::getNumFatura()  {
-    return num_fatura;
-}
 
-void Cabaz::setNumFatura(int numFatura) {
-    num_fatura = numFatura;
-}
 
-int Cabaz::getId() const {
+int Cabaz::getId() {
     return id;
 }
 
+
+Cabaz::Cabaz() {}
+
 void Cabaz::setId(int id) {
     Cabaz::id = id;
+}
+string Cabaz::getItens() {
+    return itens;
+}
+
+void Cabaz::setItens( string itens) {
+    Cabaz::itens = itens;
 }

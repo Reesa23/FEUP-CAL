@@ -57,7 +57,7 @@ void Graph::addVertex(Vertex * newV) {vertexSet.push_back(newV);}
 void Graph::addEdge(Edge *newE) {edgeSet.push_back(newE);}
 
 
-Vertex* Graph::findVertex(const int id) const {
+Vertex* Graph::findVertex(int id) {
 
 
     for(int i=0;i<vertexSet.size();i++)

@@ -117,7 +117,7 @@ class Graph {
     vector<Edge*> edgeSet;         // edge set
 
 public:
-    Vertex *findVertex(const int id) const;
+    Vertex *findVertex(int id);
     //bool addVertex(const T &in);
     //bool addEdge(const T &sourc, const T &dest, double w);
 
